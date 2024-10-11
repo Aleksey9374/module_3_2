@@ -2,12 +2,12 @@ def send_email(message, recipient, *, sender = None):
     if sender is None:
         sender = 'university.help@gmail.com'
     var = ('.com', '.ru', '.net')
-    if sender == recipient:
-        print('Нельзя отправить письмо самому себе!')
-    elif sender == 'university.help@gmail.com':
-        print(f'Письмо успешно отправлено с адреса {sender} на адрес {recipient}')
-    elif sender.endswith(var) and recipient.endswith(var) and '@' in sender and '@' in recipient:
-        print(f'НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо отправлено с адреса {sender} на адрес {recipient}')
+    if sender.endswith(var) and recipient.endswith(var) and '@' in sender and '@' in recipient:
+        if sender == recipient:
+            print('Нельзя отправить письмо самому себе!')
+        elif sender == 'university.help@gmail.com':
+            print(f'Письмо успешно отправлено с адреса {sender} на адрес {recipient}')
+        else:print(f'НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо отправлено с адреса {sender} на адрес {recipient}')
     else: print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient}')
 
 send_email('Это сообщение для проверки связи', 'vasyok1337@gmail.com')
